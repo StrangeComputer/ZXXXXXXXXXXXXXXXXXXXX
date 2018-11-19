@@ -7,7 +7,7 @@ client.guilds.get('444804338460786688').channels.get('445135163257651211').send(
 
 client.on('ready', () => {
 deposite();
-setInterval(deposite, 28800000);
+setInterval(deposite, 3600000);
 });
  
 client.on('ready', () => {
