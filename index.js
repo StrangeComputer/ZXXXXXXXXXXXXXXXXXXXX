@@ -11,16 +11,16 @@ client.guilds.get('444804338460786688').channels.get('445135163257651211').send(
 function rabota() {
   client.guilds.get('444804338460786688').channels.get('445135163257651211').send('.work');
 }
-
-client.on('ready', () => {
-deposite();
-setInterval(deposite, 3600500);
-});
  
 client.on('ready', () => {
   rabota();
   setInterval(rabota, 3600000);
 });
+
+client.on('ready', () => {
+  deposite();
+  setInterval(deposite, 3600500);
+});  
 
 client.on('ready', () => {
 	console.log('Bot loaded');
