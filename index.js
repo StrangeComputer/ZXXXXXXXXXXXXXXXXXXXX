@@ -5,7 +5,7 @@ const autoDep = `.give-money <@421944342048014366>`;
 const autoWith = `<@421944342048014366> одолжи`;
 
 function deposite() {
-client.guilds.get('444804338460786688').channels.get('445135163257651211').send('.dep all');
+client.guilds.get('444804338460786688').channels.get('445135163257651211').send('.deposite all');
 }
 
 function rabota() {
