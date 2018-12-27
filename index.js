@@ -45,7 +45,7 @@ client.on('message', message => {
 }
 
 
-if ((message.content.startsWith(autoWith))  && ['327872942124040192', '268677125777653760', '421944342048014366', '450323832620974089','325756060826730496',].includes(message.author.id)) {
+if ((message.content.startsWith(autoWith)) && ['327872942124040192', '268677125777653760', '421944342048014366', '325756060826730496','376268745695559680',].includes(message.author.id)) {
 const amount = message.content.split(" ").slice(2);
 
 if(amount > 10000) return message.channel.send('Твой лимит на данную транзакцию уже это, всё')
