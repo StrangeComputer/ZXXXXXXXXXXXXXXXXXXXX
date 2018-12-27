@@ -24,7 +24,6 @@ client.on('ready', () => {
 
 client.on('ready', () => {
 	console.log('Bot loaded');
-    client.user.setPresence({game: {name: null}}).catch(o_O=>{});
     client.user.setStatus('invisible');
 });
 
