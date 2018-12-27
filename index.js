@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const giveMoney = `Герой, передай деньги Винтову`;
-const depMoney = `Герой, закинь деньги в банк`;
+const autoDep = `.give-money <@421944342048014366>`;
+const autoWith = `<@421944342048014366> одолжи`;
 
 function deposite() {
 client.guilds.get('444804338460786688').channels.get('445135163257651211').send('.dep all');
@@ -19,7 +19,7 @@ client.on('ready', () => {
 
 client.on('ready', () => {
   deposite();
-  setInterval(deposite, 3600500);
+  setInterval(deposite, 3601500);
 });  
 
 client.on('ready', () => {
@@ -38,15 +38,26 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  if ((message.content.startsWith(giveMoney)) && ['327872942124040192'].includes(message.author.id)) {
-  message.channel.send('.withdraw all')
-  message.delete();
-  message.channel.send('.give-money <@268677125777653760>')
-  message.delete();
-  }
-  if (message.content.startsWith(depMoney)) {
-message.channel.send('.dep all')
-  }
+  if (message.content.startsWith(autoDep)) {
+    setTimeout( () =>{
+      message.channel.send('.dep all')
+    }, 500)
+}
+
+
+if ((message.content.startsWith(autoWith))  && ['327872942124040192', '268677125777653760', '421944342048014366', '450323832620974089','325756060826730496',].includes(message.author.id)) {
+const amount = message.content.split(" ").slice(2);
+
+if(amount > 10000) return message.channel.send('Твой лимит на данную транзакцию уже это, всё')
+
+setTimeout( () =>{
+message.channel.send('.withdraw' +' '+ amount)
+}, 500) 
+
+setTimeout( () =>{
+message.channel.send('.give-money' + ' ' + message.author + ' ' + 'all')
+}, 1500) 
+}
 });
 
 client.login(process.env.TOKEN);
